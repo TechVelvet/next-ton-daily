@@ -1,37 +1,16 @@
 'use client'
 import React, { useEffect, useState } from 'react';
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
+import { Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
-
-// import required modules
-import { Pagination, Autoplay } from 'swiper/modules';
 import Slider from '@/components/slider';
 import { useRouter } from 'next/navigation';
-
+import { useAPI } from '@/components/apiProvider';
 
 export default function Home() {
 
-  const [sliderBlog, setSliderBlog] = useState(null);
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('https://backapi.bitcoinworld.news/api/blog/info?&domain=TON Daily&pin=true');
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        const result = await response.json();
-        setSliderBlog(result.data);
-      } catch (error) {
-       console.log("Error fettichin Pin blog----------->", error);
-      } 
-    };
-
-    fetchData();
-  }, []);
+  const { handleChange, inputValues, formatDate, latestBlog, pinBlogs, allBlogs, icoCalendar, mostReadBlog, pressReleases, ads200x200 } = useAPI();  
 
   const router = useRouter();
 
@@ -39,30 +18,90 @@ export default function Home() {
     router.push(`/article/${articleId}`);
   };
 
+  const [displayedData, setDisplayedData] = useState(allBlogs?.slice(0, 2));
+  const [allDataLoaded, setAllDataLoaded] = useState(false);
+
+  useEffect(() => {
+    setDisplayedData(allBlogs?.slice(0, 2));
+    setAllDataLoaded(false);
+  }, [allBlogs]);
+
+  const handleLoadMore = () => {
+    setDisplayedData(allBlogs);
+    setAllDataLoaded(true);
+  };
+
   return (
     <>
-      <div id="content" class="page-content-wrap2 no-tps">
-        <div class="container">
-          <div class="content-element5">
-            <div class="row">
-              <aside id="sidebar" class="sticky-bar col-lg-2 col-md-12">
-                <div class="widget">
-                  <h6 class="widget-title">Latest</h6>
-                  <div class="entry-box" id="Latest"></div>
+      <div id="content" className="page-content-wrap2 no-tps">
+        <div className="container">
+          <div className="content-element5">
+            <div className="row">
+              <aside id="sidebar" className="sticky-bar col-lg-2 col-md-12">
+                <div className="widget">
+                  <h6 className="widget-title">Latest</h6>
+                  <div className="entry-box">
+                    {latestBlog?.slice(0, 4).map((entry, key) => (
+                      <div class="entry entry-small" key={key}>
+                        <div class="thumbnail-attachment">
+                          <a onClick={() => handleClick(entry._id)}>
+                            <img
+                              src={`https://backapi.bitcoinworld.news/api/media/${entry.blog_img}`}
+                              alt=""
+                            />
+                          </a>
+                          <a href="" class="entry-label">
+                            {entry.tag}
+                          </a>
+                        </div>
+                        <div class="entry-body">
+                          <h6 class="entry-title">
+                            <a onClick={() => handleClick(entry._id)}>
+                              {entry.title}
+                            </a>
+                          </h6>
+                          <div class="entry-meta">
+                            <time class="entry-date" datetime="">
+                              {formatDate(entry.updatedAt)}
+                            </time>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
-                <div class="widget">
-                  <h6 class="widget-title">Press Releases</h6>
-                  <div class="entry-box" id="PressReleases"></div>
+                <div className="widget">
+                  <h6 className="widget-title">Press Releases</h6>
+                  <div className="entry-box" id="PressReleases">
+                    {pressReleases?.map((elem, index) => (
+                      <div class="entry entry-small" key={index}>
+                        <div class="entry-body">
+                          <h6 class="entry-title">
+                            <a onClick={() => handleClick(elem._id)}>
+                              {elem.title}
+                            </a>
+                          </h6>
+                          <div class="entry-meta">
+                            <time class="entry-date" datetime="2018-12-21">
+                              {formatDate(elem.updatedAt)}
+                            </time>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
-                <div class="widget">
-                  <div class="banner-title">Advertisement</div>
-                  <div id="ads200x200"></div>
+                <div className="widget">
+                  <div className="banner-title">Advertisement</div>
+                  <div id="ads200x200">
+                    <a onClick={() => handleClick(ads200x200.redirect_link)} class="banner"><img src={`https://backapi.bitcoinworld.news/api/media/${ads200x200?.image}`} alt="" /></a>
+                  </div>
                 </div>
               </aside>
-              <main id="main" class="col-lg-10 col-md-12">
-                <div class="news-holder">
+              <main id="main" className="col-lg-10 col-md-12">
+                <div className="news-holder">
                   <Swiper
                     pagination={{ dynamicBullets: true }}
                     autoplay={{ delay: 3000, disableOnInteraction: false }}
@@ -70,154 +109,215 @@ export default function Home() {
                     loop={true}
                     className="mySwiper"
                   >
-                    {sliderBlog?.map((slide, index) => (
-                      <SwiperSlide key={index} onClick={() => handleClick(slide._id)}>
+                    {pinBlogs?.map((slide, index) => (
+                      <SwiperSlide
+                        key={index}
+                        onClick={() => handleClick(slide._id)}
+                      >
                         <Slider slide={slide} />
                       </SwiperSlide>
                     ))}
                   </Swiper>
                 </div>
 
-                <div class="row no-gutters">
-                  <div class="main col-lg-8 col-md-12 lside">
-                    <div class="content-element2">
-                      <div class="banner-title">Advertisement</div>
+                <div className="row no-gutters">
+                  <div className="main col-lg-8 col-md-12 lside">
+                    <div className="content-element2">
+                      <div className="banner-title">Advertisement</div>
                       <div id="ads728x90"></div>
                     </div>
-                    <div class="content-element4">
-                      <div class="entry-box row" id="main-blogs"></div>
+                    <div className="content-element4">
+                      <div className="entry-box row" id="main-blogs">
+                        {displayedData?.map((elem, index) => (
+                          <div class="col-md-6" key={index}>
+                            <div class="entry entry-small">
+                              <div class="thumbnail-attachment">
+                                <a href="#">
+                                  <img
+                                    src={`https://backapi.bitcoinworld.news/api/media/${elem.blog_img}`}
+                                    alt=""
+                                  />
+                                </a>
+                                <a href="#" class="entry-label">
+                                  {elem.tag}
+                                </a>
+                              </div>
+                              <div class="entry-body">
+                                <h5 class="entry-title">
+                                  <a href="#">{elem.title}</a>
+                                </h5>
+                                <div class="entry-meta">
+                                  <time class="entry-date" datetime="">
+                                    {formatDate(elem.updatedAt)}
+                                  </time>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                    {/* <!-- <div class="align-center">
-
-                    <a href="#" class="btn">Load More Posts</a>
-
-                  </div> --> */}
+                    <div className="align-center">
+                      {allDataLoaded ? (
+                        <></>
+                      ) : (
+                        <button className="btn" onClick={handleLoadMore}>
+                          Load More Posts
+                        </button>
+                      )}
+                    </div>
                   </div>
-                  <aside class="sidebar sticky-bar col-lg-4 col-md-12 sbr">
-                    <div class="widget">
-                      <h6 class="widget-title">Calculator</h6>
 
-                      <div class="calc-section">
-                        <div class="calc-item">
-                          <div class="currency">
-                            <div class="flex-justify">
-                              <input
-                                type="text"
-                                id="TON_value"
-                                placeholder="1"
-                                oninput="updateCalculations('TON')"
-                                onkeypress="return isNumberKey(event)"
+                  <aside className="sidebar sticky-bar col-lg-4 col-md-12 sbr">
+                    <div className="widget">
+                      <h6 className="widget-title">Calculator</h6>
+
+                      <div className="calc-section">
+                        <div className="calc-item">
+                          <div className="currency">
+                            <div className="flex-justify">
+                              <input type='text'
+                                value={inputValues.tonValue}
+                                onChange={handleChange}
+                                name="tonValue"
                               />
                               <span>TON</span>
                             </div>
                           </div>
                           <span>=</span>
-                          <div class="quantity">
-                            <input
-                              type="text"
-                              id="TON_input"
-                              oninput="updateFromInput('TON')"
-                              onkeypress="return isNumberKey(event)"
+                          <div className="quantity">
+                            <input type='text'
+                              value={inputValues.tonUsdValue}
+                              onChange={handleChange}
+                              name="tonUsdValue"
                             />
                           </div>
-                          <div class="custom-select price-check">
-                            <div class="select-title">USD</div>
-                            <ul id="menu-type4" class="select-list"></ul>
-                            <select id="TON_currency" class="hide">
+                          <div className="custom-select price-check">
+                            <div className="select-title">USD</div>
+                            <ul id="menu-type4" className="select-list"></ul>
+                            <select id="TON_currency" className="hide">
                               <option value="USD">USD</option>
-                              {/* <!-- <option value="EUR">EUR</option>
-                            <option value="RUR">RUR</option> --> */}
+                              <option value="EUR">EUR</option>
+                              <option value="RUR">RUR</option>
                             </select>
                           </div>
                         </div>
 
-                        <div class="calc-item">
-                          <div class="currency">
-                            <div class="flex-justify">
-                              <input
-                                type="text"
-                                id="BTC_value"
-                                placeholder="1"
-                                oninput="updateCalculations('BTC')"
-                                onkeypress="return isNumberKey(event)"
+                        <div className="calc-item">
+                          <div className="currency">
+                            <div className="flex-justify">
+                              <input type='text'
+                                value={inputValues.btcValue}
+                                onChange={handleChange}
+                                name="btcValue"
                               />
                               <span>BTC</span>
                             </div>
                           </div>
                           <span>=</span>
-                          <div class="quantity">
-                            <input
-                              type="text"
-                              id="BTC_input"
-                              oninput="updateFromInput('BTC')"
-                              onkeypress="return isNumberKey(event)"
+                          <div className="quantity">
+                            <input type='text'
+                              value={inputValues.btcUsdValue}
+                              onChange={handleChange}
+                              name="btcUsdValue"
                             />
                           </div>
-                          <div class="custom-select price-check">
-                            <div class="select-title">USD</div>
-                            <ul id="menu-type2" class="select-list"></ul>
-                            <select id="BTC_currency" class="hide">
+                          <div className="custom-select price-check">
+                            <div className="select-title">USD</div>
+                            <ul id="menu-type2" className="select-list"></ul>
+                            <select id="BTC_currency" className="hide">
                               <option value="USD">USD</option>
-                              {/* <!-- <option value="EUR">EUR</option>
-                            <option value="RUR">RUR</option> --> */}
+                              <option value="EUR">EUR</option>
+                              <option value="RUR">RUR</option>
                             </select>
                           </div>
                         </div>
 
-                        <div class="calc-item">
-                          <div class="currency">
-                            <div class="flex-justify">
-                              <input
-                                type="text"
-                                id="ETH_value"
-                                placeholder="1"
-                                oninput="updateCalculations('ETH')"
-                                onkeypress="return isNumberKey(event)"
+                        <div className="calc-item">
+                          <div className="currency">
+                            <div className="flex-justify">
+                              <input type='text'
+                                value={inputValues.ethValue}
+                                onChange={handleChange}
+                                name="ethValue"
                               />
                               <span>ETH</span>
                             </div>
                           </div>
                           <span>=</span>
-                          <div class="quantity">
-                            <input
-                              type="text"
-                              id="ETH_input"
-                              oninput="updateFromInput('ETH')"
-                              onkeypress="return isNumberKey(event)"
+                          <div className="quantity">
+                            <input type='text'
+                              value={inputValues.ethUsdValue}
+                              onChange={handleChange}
+                              name="ethUsdValue"
                             />
                           </div>
-                          <div class="custom-select price-check">
-                            <div class="select-title">USD</div>
-                            <ul id="menu-type3" class="select-list"></ul>
-                            <select id="ETH_currency" class="hide">
+                          <div className="custom-select price-check">
+                            <div className="select-title">USD</div>
+                            <ul id="menu-type3" className="select-list"></ul>
+                            <select id="ETH_currency" className="hide">
                               <option value="USD">USD</option>
-                              {/* <!-- <option value="EUR">EUR</option>
-                            <option value="RUR">RUR</option> --> */}
+                              <option value="EUR">EUR</option>
+                              <option value="RUR">RUR</option>
                             </select>
                           </div>
                         </div>
                       </div>
                     </div>
 
-                    <div class="widget">
-                      <h6 class="widget-title">ICO Calendar</h6>
+                    <div className="widget">
+                      <h6 className="widget-title">ICO Calendar</h6>
 
-                      <div class="entry-box" id="ICO-Calendar"></div>
+                      <div className="entry-box" id="ICO-Calendar">
+                        {icoCalendar?.slice(0, 4).map((ico, index) => (
+                          <div class="entry entry-ico" key={index}>
+                            <div class="thumbnail-attachment">
+                              <a href="#">
+                                <img
+                                  src={`https://backapi.bitcoinworld.news/api/media/${ico.logo}`}
+                                  alt=""
+                                />
+                              </a>
+                            </div>
 
-                      <a href="ico_list.html" class="btn btn-small">
+                            <div class="entry-body">
+                              <div class="entry-meta">
+                                <time class="entry-date" datetime="">
+                                  {formatDate(ico.end_date)}
+                                </time>
+                              </div>
+                              <h6 class="entry-title">
+                                <a href="#">{ico.title}</a>
+                              </h6>
+                              <p>{ico.description}</p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+
+                      <a href="/ico" className="btn btn-small">
                         View All ICOs
                       </a>
                     </div>
 
-                    <div class="widget">
-                      <div class="banner-title">Advertisement</div>
+                    <div className="widget">
+                      <div className="banner-title">Advertisement</div>
                       <div id="ads250x250"></div>
                     </div>
 
-                    <div class="widget">
-                      <h6 class="widget-title">Most read</h6>
-
-                      <ul class="most-read" id="most-read"></ul>
+                    <div className="widget">
+                      <h6 className="widget-title">Most read</h6>
+                      <ul className="most-read" id="most-read">
+                        {mostReadBlog?.map((elem, index) => (
+                          <li key={index}>
+                            <h6>
+                              <a onClick={() => handleClick(elem._id)}>
+                                {elem.title}
+                              </a>
+                            </h6>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   </aside>
                 </div>
@@ -225,11 +325,11 @@ export default function Home() {
             </div>
           </div>
 
-          <div class="align-center">
-            <div class="banner-wrap m-banner-bottom" id="ad-bottom">
-              <div class="banner-title banner-bottom">
+          <div className="align-center">
+            <div className="banner-wrap m-banner-bottom" id="ad-bottom">
+              <div className="banner-title banner-bottom">
                 <span>Advertisement</span>
-                <i id="close-ad" class="bi bi-x-lg"></i>
+                <i id="close-ad" className="bi bi-x-lg"></i>
               </div>
               <div id="ads970x90"></div>
             </div>

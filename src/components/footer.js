@@ -1,25 +1,25 @@
 export default function Footer() {
   return (
-    <footer id="footer" class="footer">
-      <div class="top-footer">
-        <div class="container">
-          <div class="row align-items-center">
-            <div class="col-lg-3 col-md-12">
-              <a href="index.html" class="logo">
+    <footer id="footer" className="footer">
+      <div className="top-footer">
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col-lg-3 col-md-12">
+              <a href="/" className="logo">
                 <img src="images/LOGO.png" alt="" />
               </a>
             </div>
-            <div class="col-lg-6 col-md-12 align-center"></div>
-            <div class="col-lg-3 col-md-12 align-right">
-              <ul class="social-icons">
+            <div className="col-lg-6 col-md-12 align-center"></div>
+            <div className="col-lg-3 col-md-12 align-right">
+              <ul className="social-icons">
                 <li>
                   <a href="https://x.com/TonDailyN" target="_blank">
-                    <i class="icon-twitter"></i>
+                    <i className="icon-twitter"></i>
                   </a>
                 </li>
                 <li>
                   <a href="#">
-                    <i class="icon-telegram"></i>
+                    <i className="icon-telegram"></i>
                   </a>
                 </li>
               </ul>
@@ -27,12 +27,12 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div class="main-footer">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-12">
-              <div class="widget">
-                <h6 class="widget-title">About</h6>
+      <div className="main-footer">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-3 col-md-6 col-sm-12">
+              <div className="widget">
+                <h6 className="widget-title">About</h6>
                 <p>
                   Nemo enim ipsam voluptatem quia voluptas aut fugit, sed quia
                   consequuntur magni dolores eos qui ratione.
@@ -43,10 +43,10 @@ export default function Footer() {
                 </p>
               </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-              <div class="widget">
-                <h6 class="widget-title">Live Charts</h6>
-                <ul class="chart-list">
+            <div className="col-lg-3 col-md-6 col-sm-12">
+              <div className="widget">
+                <h6 className="widget-title">Live Charts</h6>
+                <ul className="chart-list">
                   <li>
                     <a href="#">Bitcoin Price</a>
                   </li>
@@ -68,9 +68,9 @@ export default function Footer() {
                 </ul>
               </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-12"></div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-              <ul class="menu-list">
+            <div className="col-lg-3 col-md-6 col-sm-12"></div>
+            <div className="col-lg-3 col-md-6 col-sm-12">
+              <ul className="menu-list">
                 <li>
                   <a href="#">Write for Us</a>
                 </li>
@@ -91,7 +91,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div class="copyright">
+      <div className="copyright">
         <p>Copyright © 2018 Cryptox. All Rights Reserved.</p>
       </div>
     </footer>

@@ -8,8 +8,7 @@ export async function generateMetadata({ params }, parent) {
   const previousImages = (await parent).openGraph?.images || []
 
   return {
-    title: product.title,
-
+    title: product.data.title,
     openGraph: {
       images: [`https://backapi.bitcoinworld.news/api/media/${product.data.blog_img}`, ...previousImages],
     },
@@ -19,11 +18,11 @@ export async function generateMetadata({ params }, parent) {
 export default function Layout({children}) {
   return (
     <>
-        <div class="breadcrumbs-wrap no-title">
-          <div class="container">
-            <ul class="breadcrumbs">
+        <div className="breadcrumbs-wrap no-title">
+          <div className="container">
+            <ul className="breadcrumbs">
               <li>
-                <a href="index.html">Home</a>
+                <a href="/">Home</a>
               </li>
               <li>
                 <a href="news_category.html">News</a>
@@ -32,25 +31,25 @@ export default function Layout({children}) {
             </ul>
           </div>
         </div>
-        <div id="content" class="page-content-wrap">
-          <div class="container">
-            <div class="row">
-              <main id="main" class="col-lg-9 col-md-12">
-                <div class="content-element">
-                  <div class="entry-single">
-                    <div class="row">
-                      <div class="sidebar col-sm-4">
-                        <div class="widget">
-                          <div class="entry-box">
-                            <div class="entry entry-small">
-                              <div class="thumbnail-attachment">
-                                <div class="entry-label">Blockchain</div>
+        <div id="content" className="page-content-wrap">
+          <div className="container">
+            <div className="row">
+              <main id="main" className="col-lg-9 col-md-12">
+                <div className="content-element">
+                  <div className="entry-single">
+                    <div className="row">
+                      <div className="sidebar col-sm-4">
+                        <div className="widget">
+                          <div className="entry-box">
+                            <div className="entry entry-small">
+                              <div className="thumbnail-attachment">
+                                <div className="entry-label">Blockchain</div>
                               </div>
 
-                              <div class="entry-body">
-                                <div class="entry-meta">
+                              <div className="entry-body">
+                                <div className="entry-meta">
                                   <p>Date:&nbsp;</p>
-                                  <time class="entry-date" id="BlogDate"></time>
+                                  <time className="entry-date" id="BlogDate"></time>
                                   <br />
                                 </div>
                               </div>
@@ -58,22 +57,22 @@ export default function Layout({children}) {
                           </div>
                         </div>
 
-                        <div class="widget">
-                          <div class="share-wrap">
-                            <span class="share-title">Share this:</span>
-                            <ul class="social-icons share v-type">
+                        <div className="widget">
+                          <div className="share-wrap">
+                            <span className="share-title">Share this:</span>
+                            <ul className="social-icons share v-type">
                               <li>
-                                <a id="composeTweet" class="sh-twitter">
-                                  <i class="icon-twitter"></i>Twitter
+                                <a id="composeTweet" className="sh-twitter">
+                                  <i className="icon-twitter"></i>Twitter
                                 </a>
                               </li>
                               <li>
                                 <a
                                   href="https://t.me/share/url?url=YourMessage"
                                   target="_blank"
-                                  class="sh-telegram"
+                                  className="sh-telegram"
                                 >
-                                  <i class="icon-telegram"></i>Telegram
+                                  <i className="icon-telegram"></i>Telegram
                                 </a>
                               </li>
                             </ul>
@@ -85,32 +84,32 @@ export default function Layout({children}) {
                   </div>
                 </div>
               </main>
-              <aside id="sidebar" class="col-lg-3 col-md-12 sbl">
-                <div class="widget">
-                  <h6 class="widget-title">ICO Calendar</h6>
+              <aside id="sidebar" className="col-lg-3 col-md-12 sbl">
+                <div className="widget">
+                  <h6 className="widget-title">ICO Calendar</h6>
 
-                  <div class="entry-box" id="ICO-Calendar"></div>
+                  <div className="entry-box" id="ICO-Calendar"></div>
 
-                  <a href="ico_list.html" class="btn btn-small">
+                  <a href="/ico" className="btn btn-small">
                     View All ICOs
                   </a>
                 </div>
 
-                <div class="widget">
-                  <div class="banner-title">Advertisement</div>
+                <div className="widget">
+                  <div className="banner-title">Advertisement</div>
 
                   <div id="ads250x250"></div>
                 </div>
 
-                <div class="widget">
-                  <h6 class="widget-title">Most read</h6>
+                <div className="widget">
+                  <h6 className="widget-title">Most read</h6>
 
-                  <ul class="most-read" id="most-read"></ul>
+                  <ul className="most-read" id="most-read"></ul>
                 </div>
-                <div class="widget">
-                  <h6 class="widget-title">Latest</h6>
+                <div className="widget">
+                  <h6 className="widget-title">Latest</h6>
 
-                  <div class="entry-box" id="Latest"></div>
+                  <div className="entry-box" id="Latest"></div>
                 </div>
               </aside>
             </div>

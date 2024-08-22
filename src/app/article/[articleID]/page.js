@@ -23,14 +23,14 @@ export default function ArticlePage({params}) {
   
   return (
     <>
-      <div class="main col-sm-8">
-        <h2 class="title">
+      <div className="main col-sm-8">
+        <h2 className="title">
           <b id="title">{fullBlog?.title}</b>
         </h2>
-        <div class="content-element2">
+        <div className="content-element2">
           <img src={`https://backapi.bitcoinworld.news/api/media/${fullBlog?.blog_img}`} alt="" />
         </div>
-        <div class="content-element2">{parse(typeof fullBlog?.description === 'string' ? fullBlog.description : '...')}</div>
+        <div className="content-element2">{parse(typeof fullBlog?.description === 'string' ? fullBlog.description : '...')}</div>
       </div>
     </>
   );
