@@ -12,6 +12,9 @@ export const APIProvider = ({ children }) => {
   const [icoCalendar, setIcoCalendar] = useState();
   const [mostReadBlog, setMostReadBlog] = useState();
   const [ads200x200, setAds200x200] = useState();
+  const [advertisment320x100, setAdvertisment320x100] = useState();
+  const [advertisment728x90, setAdvertisment728x90] = useState();
+  const [advertisment970x90, setAdvertisment970x90] = useState();
 
   function formatDate(dateString) {
     const date = new Date(dateString);
@@ -271,14 +274,15 @@ export const APIProvider = ({ children }) => {
     axios.get(`https://backapi.bitcoinworld.news/api/advertisment/type-wise?domain=TON Daily`)
     .then((resp) => {
       const apiResp = resp.data
-      console.log("apiResp=========>", apiResp);
       if(apiResp.success === 200){
-        setAds200x200(apiResp.data);
+          setAds200x200(apiResp.data.advertisment200x200);
+          setAdvertisment320x100(apiResp.data.advertisment320x100);
+          setAdvertisment728x90(apiResp.data.advertisment728x90);
+          setAdvertisment970x90(apiResp.data.advertisment970x90);
       }
     })
     .catch((error) => {
       console.log("error in getAdvertisement------>", error);
-      
     })
   }
 
@@ -303,7 +307,10 @@ export const APIProvider = ({ children }) => {
     allBlogs,
     icoCalendar,
     mostReadBlog,
-    ads200x200
+    ads200x200,
+    advertisment728x90,
+    advertisment320x100,
+    advertisment970x90
   };
 
   return (

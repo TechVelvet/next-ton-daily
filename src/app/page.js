@@ -10,7 +10,11 @@ import { useAPI } from '@/components/apiProvider';
 
 export default function Home() {
 
-  const { handleChange, inputValues, formatDate, latestBlog, pinBlogs, allBlogs, icoCalendar, mostReadBlog, pressReleases, ads200x200 } = useAPI();  
+  const { handleChange, inputValues, formatDate, latestBlog, pinBlogs, allBlogs, icoCalendar, mostReadBlog, pressReleases,
+    ads200x200,
+    advertisment728x90,
+    advertisment320x100,
+    advertisment970x90 } = useAPI();  
 
   const router = useRouter();
 
@@ -96,7 +100,7 @@ export default function Home() {
                 <div className="widget">
                   <div className="banner-title">Advertisement</div>
                   <div id="ads200x200">
-                    <a onClick={() => handleClick(ads200x200.redirect_link)} class="banner"><img src={`https://backapi.bitcoinworld.news/api/media/${ads200x200?.image}`} alt="" /></a>
+                    <a href={ads200x200?.redirect_link} target='_blank' class="banner"><img src={`https://backapi.bitcoinworld.news/api/media/${ads200x200?.image}`} alt="" /></a>
                   </div>
                 </div>
               </aside>
@@ -124,7 +128,9 @@ export default function Home() {
                   <div className="main col-lg-8 col-md-12 lside">
                     <div className="content-element2">
                       <div className="banner-title">Advertisement</div>
-                      <div id="ads728x90"></div>
+                      <div id="ads728x90">
+                        <a href={advertisment728x90?.redirect_link} target='_blank' class="banner"><img src={`https://backapi.bitcoinworld.news/api/media/${advertisment728x90?.image}`} alt="" /></a>
+                      </div>
                     </div>
                     <div className="content-element4">
                       <div className="entry-box row" id="main-blogs">
@@ -302,7 +308,9 @@ export default function Home() {
 
                     <div className="widget">
                       <div className="banner-title">Advertisement</div>
-                      <div id="ads250x250"></div>
+                      <div id="ads250x250">
+                        <a href={ads200x200?.redirect_link} target='_blank' class="banner"><img src={`https://backapi.bitcoinworld.news/api/media/${ads200x200?.image}`} alt="" /></a>
+                      </div>
                     </div>
 
                     <div className="widget">
@@ -329,9 +337,11 @@ export default function Home() {
             <div className="banner-wrap m-banner-bottom" id="ad-bottom">
               <div className="banner-title banner-bottom">
                 <span>Advertisement</span>
-                <i id="close-ad" className="bi bi-x-lg"></i>
+                <i className="bi bi-x-lg"></i>
               </div>
-              <div id="ads970x90"></div>
+              <div id="ads970x90">
+                <a href={advertisment970x90?.redirect_link} target='_blank' class="banner"><img src={`https://backapi.bitcoinworld.news/api/media/${advertisment970x90?.image}`} alt="" /></a>
+              </div>
             </div>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import { Inter } from "next/font/google";
+import "bootstrap-icons/font/bootstrap-icons.css";
 import "./bootstrap-grid.min.css";
 import "./globals.css";
 import "./responsive.css";
@@ -14,6 +15,7 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  
   return (
     <html lang="en">
       <APIProvider>

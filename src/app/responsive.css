@@ -243,14 +243,14 @@
 		/* margin-top: 0px; */
 	}
 
-	#wrapper.active .mobile-advanced {
+	#mobile-advanced.active{
 		pointer-events: auto;
 
 		-webkit-transform: translate(-100%, 0);
 				transform: translate(-100%, 0);
 	}
 
-	.no-cssanimations.no-csstransforms3d #wrapper.active .mobile-advanced {
+	.no-cssanimations.no-csstransforms3d #mobile-advanced.active .mobile-advanced {
 		right: 0;
 	}
 
@@ -345,7 +345,7 @@
 
 		.logged-in.admin-bar #advanced-menu-hide{top: 55px;}
 
-		#wrapper.active #advanced-menu-hide{
+		#mobile-advanced.active #advanced-menu-hide{
 			visibility: visible;
 			pointer-events: auto;
 
