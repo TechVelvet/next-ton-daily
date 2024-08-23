@@ -5,7 +5,8 @@ import "./globals.css";
 import "./responsive.css";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-import { APIProvider } from "@/components/apiProvider";
+import { APIProvider } from "@/contexts/apiProvider";
+
 
 const inter = Inter({ subsets: ["latin"] });
 

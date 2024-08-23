@@ -230,7 +230,7 @@ body {
 }
 
 .index-page#wrapper{
-  margin-top: 165px;
+  margin-top: 130px;
 }
 
 body {
@@ -1956,14 +1956,8 @@ button.search-button:before {
 
 #ads250x250 .banner img{
   width: 250px;
-  height: 250px;
+  /* height: 250px; */
   aspect-ratio: 1/1;  
-}
-
-#ads250x250 .banner img{
-  width: 250px;
-  height: 250px;
-  aspect-ratio: 1/1;
 }
 
 #ads728x90 .banner img{
@@ -1973,8 +1967,8 @@ button.search-button:before {
 }
 
 #ads970x90 .banner img{
-  /* width: 970px; */
-  height: 90px;
+  width: 970px;
+  /* height: 90px; */
   aspect-ratio: 10.78 / 1;
 }
 

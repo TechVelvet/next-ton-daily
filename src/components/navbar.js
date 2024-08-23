@@ -1,36 +1,37 @@
 "use client";
 import { usePathname } from "next/navigation";
-import { useAPI } from "./apiProvider";
+import { useAPI } from "../contexts/apiProvider";
 import { useState } from "react";
 
 export default function Navbar() {
-
   const { navCurrVal } = useAPI();
   const [showMenu, setShowMenu] = useState(false);
   const handleShowMenu = () => {
-    setShowMenu(!showMenu)
+    setShowMenu(!showMenu);
     console.log("showMenu====>", showMenu);
-    
-  }
-  
-  const pathname = usePathname()
+  };
+
+  const pathname = usePathname();
   return (
     <>
-      <nav id="mobile-advanced" className={`mobile-advanced ${showMenu ? "active" : ""}`}>
+      <nav
+        id="mobile-advanced"
+        className={`mobile-advanced ${showMenu ? "active" : ""}`}
+      >
         <a id="advanced-menu-hide" href="#" onClick={handleShowMenu}></a>
         <ul id="menu" class="clearfix">
-        <li className={pathname === "/" ? "current" : ""}>
-                      <a href="/">Home</a>
-                    </li>
-                    <li className={pathname === "/ico" ? "current" : ""}>
-                      <a href="/ico">ICO Calender</a>
-                    </li>
-                    <li className={pathname === "/airdrop" ? "current" : ""}>
-                      <a href="/airdrop">Airdrop Calender</a>
-                    </li>
-                    <li className={pathname === "/event" ? "current" : ""}>
-                      <a href="/event">Events</a>
-                    </li>
+          <li className={pathname === "/" ? "current" : ""}>
+            <a href="/">Home</a>
+          </li>
+          <li className={pathname === "/ico" ? "current" : ""}>
+            <a href="/ico">ICO Calender</a>
+          </li>
+          <li className={pathname === "/airdrop" ? "current" : ""}>
+            <a href="/airdrop">Airdrop Calender</a>
+          </li>
+          <li className={pathname === "/event" ? "current" : ""}>
+            <a href="/event">Events</a>
+          </li>
         </ul>
       </nav>
 
@@ -39,11 +40,11 @@ export default function Navbar() {
           <a href="/">
             <img
               className="Brand-logo"
-              alt=""
+              alt="LOGO"
               src={
                 window.innerWidth <= 992
-                  ? "assets/img/logo2.png"
-                  : "assets/img/LOGO.png"
+                  ? "/assets/img/logo2.png"
+                  : "/assets/img/LOGO.png"
               }
             />
           </a>

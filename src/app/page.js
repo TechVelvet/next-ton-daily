@@ -6,7 +6,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import Slider from '@/components/slider';
 import { useRouter } from 'next/navigation';
-import { useAPI } from '@/components/apiProvider';
+import { useAPI } from '@/contexts/apiProvider';
 
 export default function Home() {
 
@@ -17,7 +17,7 @@ export default function Home() {
     advertisment970x90 } = useAPI();  
 
   const router = useRouter();
-
+console.log('inputValues.tonUsdValue',inputValues.tonUsdValue)
   const handleClick = (articleId) => {
     router.push(`/article/${articleId}`);
   };
@@ -34,6 +34,10 @@ export default function Home() {
     setDisplayedData(allBlogs);
     setAllDataLoaded(true);
   };
+
+  const closeAddHandler = () => {
+    document.getElementById("ad-bottom").style.display = 'none';
+  }
 
   return (
     <>
@@ -337,7 +341,7 @@ export default function Home() {
             <div className="banner-wrap m-banner-bottom" id="ad-bottom">
               <div className="banner-title banner-bottom">
                 <span>Advertisement</span>
-                <i className="bi bi-x-lg"></i>
+                <i className="bi bi-x-lg" onClick={closeAddHandler}></i>
               </div>
               <div id="ads970x90">
                 <a href={advertisment970x90?.redirect_link} target='_blank' class="banner"><img src={`https://backapi.bitcoinworld.news/api/media/${advertisment970x90?.image}`} alt="" /></a>
