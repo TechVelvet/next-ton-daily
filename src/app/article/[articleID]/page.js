@@ -5,6 +5,7 @@ import { useAPI } from "@/contexts/apiProvider";
 import IcoCalendar from "@/components/IcoCalendar";
 import MostRead from "@/components/MostRead";
 import LatestBlogs from "@/components/latestBlogs";
+import { useRouter } from 'next/navigation';
 
 export default function ArticlePage({ params }) {
   const { formatDate, icoCalendar, mostReadBlog, latestBlog, ads200x200 } = useAPI();
@@ -28,6 +29,11 @@ export default function ArticlePage({ params }) {
 
     fetchFullBlog();
   }, []);
+
+  const router = useRouter();
+  const handleClick = (articleId) => {
+    router.push(`/article/${articleId}`);
+  };
 
   return (
     <>
@@ -114,7 +120,7 @@ export default function ArticlePage({ params }) {
             </main>
             <aside id="sidebar" className="col-lg-3 col-md-12 sbl">
               
-            <IcoCalendar formatDate={formatDate} icoCalendar={icoCalendar} />
+            <IcoCalendar handleClick={handleClick} formatDate={formatDate} icoCalendar={icoCalendar} />
 
               <div className="widget">
                 <div className="banner-title">Advertisement</div>
@@ -123,9 +129,9 @@ export default function ArticlePage({ params }) {
                 </div>
               </div>
 
-              <MostRead mostReadBlog={mostReadBlog} />
+              <MostRead handleClick={handleClick} mostReadBlog={mostReadBlog} />
 
-              <LatestBlogs formatDate={formatDate} latestBlog={latestBlog} />
+              <LatestBlogs handleClick={handleClick} formatDate={formatDate} latestBlog={latestBlog} />
             </aside>
           </div>
         </div>
