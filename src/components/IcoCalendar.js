@@ -1,6 +1,6 @@
 import React from "react";
 
-function IcoCalendar({ formatDate, icoCalendar }) {
+function IcoCalendar({ handleClick, formatDate, icoCalendar }) {
   return (
     <div className="widget">
       <h6 className="widget-title">ICO Calendar</h6>

@@ -1,6 +1,6 @@
 import React from "react";
 
-function MostRead({ mostReadBlog }) {
+function MostRead({ handleClick, mostReadBlog }) {
   return (
     <div className="widget">
       <h6 className="widget-title">Most read</h6>

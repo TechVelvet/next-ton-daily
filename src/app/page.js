@@ -49,9 +49,9 @@ export default function Home() {
           <div className="content-element5">
             <div className="row">
               <aside id="sidebar" className="sticky-bar col-lg-2 col-md-12">
-                <LatestBlogs formatDate={formatDate} latestBlog={latestBlog} />
+                <LatestBlogs handleClick={handleClick} formatDate={formatDate} latestBlog={latestBlog} />
 
-                <PressRelease formatDate={formatDate} pressReleases={pressReleases} />
+                <PressRelease handleClick={handleClick} formatDate={formatDate} pressReleases={pressReleases} />
 
                 <div className="widget">
                   <div className="banner-title">Advertisement</div>
@@ -227,7 +227,7 @@ export default function Home() {
                       </div>
                     </div>
 
-                    <IcoCalendar formatDate={formatDate} icoCalendar={icoCalendar} />
+                    <IcoCalendar handleClick={handleClick} formatDate={formatDate} icoCalendar={icoCalendar} />
 
                     <div className="widget">
                       <div className="banner-title">Advertisement</div>
@@ -235,7 +235,7 @@ export default function Home() {
                         <a href={ads200x200?.redirect_link} target='_blank' class="banner"><img src={`https://backapi.bitcoinworld.news/api/media/${ads200x200?.image}`} alt="" /></a>
                       </div>
                     </div>
-                    <MostRead mostReadBlog={mostReadBlog} />
+                    <MostRead handleClick={handleClick} mostReadBlog={mostReadBlog} />
                   </aside>
                 </div>
               </main>

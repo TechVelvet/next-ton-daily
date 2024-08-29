@@ -1,6 +1,6 @@
 import React from "react";
 
-function PressRelease({ formatDate, pressReleases}) {
+function PressRelease({ handleClick, formatDate, pressReleases}) {
   return (
     <div className="widget">
       <h6 className="widget-title">Press Releases</h6>

@@ -1,5 +1,5 @@
 import React from "react";
-function LatestBlogs({ formatDate, latestBlog }) {
+function LatestBlogs({ handleClick, formatDate, latestBlog }) {
 
 
   return (
