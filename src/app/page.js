@@ -7,6 +7,10 @@ import 'swiper/css/pagination';
 import Slider from '@/components/slider';
 import { useRouter } from 'next/navigation';
 import { useAPI } from '@/contexts/apiProvider';
+import LatestBlogs from '@/components/latestBlogs';
+import PressRelease from '@/components/pressRelease';
+import IcoCalendar from '@/components/IcoCalendar';
+import MostRead from '@/components/MostRead';
 
 export default function Home() {
 
@@ -14,10 +18,9 @@ export default function Home() {
     ads200x200,
     advertisment728x90,
     advertisment320x100,
-    advertisment970x90 } = useAPI();  
+    advertisment970x90 } = useAPI();
 
   const router = useRouter();
-console.log('inputValues.tonUsdValue',inputValues.tonUsdValue)
   const handleClick = (articleId) => {
     router.push(`/article/${articleId}`);
   };
@@ -46,60 +49,9 @@ console.log('inputValues.tonUsdValue',inputValues.tonUsdValue)
           <div className="content-element5">
             <div className="row">
               <aside id="sidebar" className="sticky-bar col-lg-2 col-md-12">
-                <div className="widget">
-                  <h6 className="widget-title">Latest</h6>
-                  <div className="entry-box">
-                    {latestBlog?.slice(0, 4).map((entry, key) => (
-                      <div class="entry entry-small" key={key}>
-                        <div class="thumbnail-attachment">
-                          <a onClick={() => handleClick(entry._id)}>
-                            <img
-                              src={`https://backapi.bitcoinworld.news/api/media/${entry.blog_img}`}
-                              alt=""
-                            />
-                          </a>
-                          <a href="" class="entry-label">
-                            {entry.tag}
-                          </a>
-                        </div>
-                        <div class="entry-body">
-                          <h6 class="entry-title">
-                            <a onClick={() => handleClick(entry._id)}>
-                              {entry.title}
-                            </a>
-                          </h6>
-                          <div class="entry-meta">
-                            <time class="entry-date" datetime="">
-                              {formatDate(entry.updatedAt)}
-                            </time>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                <LatestBlogs formatDate={formatDate} latestBlog={latestBlog} />
 
-                <div className="widget">
-                  <h6 className="widget-title">Press Releases</h6>
-                  <div className="entry-box" id="PressReleases">
-                    {pressReleases?.map((elem, index) => (
-                      <div class="entry entry-small" key={index}>
-                        <div class="entry-body">
-                          <h6 class="entry-title">
-                            <a onClick={() => handleClick(elem._id)}>
-                              {elem.title}
-                            </a>
-                          </h6>
-                          <div class="entry-meta">
-                            <time class="entry-date" datetime="2018-12-21">
-                              {formatDate(elem.updatedAt)}
-                            </time>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                <PressRelease formatDate={formatDate} pressReleases={pressReleases} />
 
                 <div className="widget">
                   <div className="banner-title">Advertisement</div>
@@ -275,40 +227,7 @@ console.log('inputValues.tonUsdValue',inputValues.tonUsdValue)
                       </div>
                     </div>
 
-                    <div className="widget">
-                      <h6 className="widget-title">ICO Calendar</h6>
-
-                      <div className="entry-box" id="ICO-Calendar">
-                        {icoCalendar?.slice(0, 4).map((ico, index) => (
-                          <div class="entry entry-ico" key={index}>
-                            <div class="thumbnail-attachment">
-                              <a href="#">
-                                <img
-                                  src={`https://backapi.bitcoinworld.news/api/media/${ico.logo}`}
-                                  alt=""
-                                />
-                              </a>
-                            </div>
-
-                            <div class="entry-body">
-                              <div class="entry-meta">
-                                <time class="entry-date" datetime="">
-                                  {formatDate(ico.end_date)}
-                                </time>
-                              </div>
-                              <h6 class="entry-title">
-                                <a href="#">{ico.title}</a>
-                              </h6>
-                              <p>{ico.description}</p>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-
-                      <a href="/ico" className="btn btn-small">
-                        View All ICOs
-                      </a>
-                    </div>
+                    <IcoCalendar formatDate={formatDate} icoCalendar={icoCalendar} />
 
                     <div className="widget">
                       <div className="banner-title">Advertisement</div>
@@ -316,21 +235,7 @@ console.log('inputValues.tonUsdValue',inputValues.tonUsdValue)
                         <a href={ads200x200?.redirect_link} target='_blank' class="banner"><img src={`https://backapi.bitcoinworld.news/api/media/${ads200x200?.image}`} alt="" /></a>
                       </div>
                     </div>
-
-                    <div className="widget">
-                      <h6 className="widget-title">Most read</h6>
-                      <ul className="most-read" id="most-read">
-                        {mostReadBlog?.map((elem, index) => (
-                          <li key={index}>
-                            <h6>
-                              <a onClick={() => handleClick(elem._id)}>
-                                {elem.title}
-                              </a>
-                            </h6>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                    <MostRead mostReadBlog={mostReadBlog} />
                   </aside>
                 </div>
               </main>

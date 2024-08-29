@@ -1,14 +1,22 @@
 "use client";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { useAPI } from "../contexts/apiProvider";
-import { useState } from "react";
 
 export default function Navbar() {
+  const [windowWidth, setWindowWidth] = useState(0);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    handleResize();
+  }, []);
+
   const { navCurrVal } = useAPI();
   const [showMenu, setShowMenu] = useState(false);
   const handleShowMenu = () => {
     setShowMenu(!showMenu);
-    console.log("showMenu====>", showMenu);
   };
 
   const pathname = usePathname();
@@ -41,8 +49,7 @@ export default function Navbar() {
             <img
               className="Brand-logo"
               alt="LOGO"
-              src={
-                window.innerWidth <= 992
+              src={windowWidth <= 992
                   ? "/assets/img/logo2.png"
                   : "/assets/img/LOGO.png"
               }
@@ -85,7 +92,7 @@ export default function Navbar() {
           <div className="container">
             <div className="menu-wrap">
               <div className="nav-item">
-                {window.innerWidth <= 992 ? (
+                {windowWidth <= 992 ? (
                   <button
                     id="responsive-nav-button"
                     class="responsive-nav-button"

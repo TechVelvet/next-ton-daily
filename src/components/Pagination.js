@@ -14,7 +14,6 @@ const Pagination = () => {
   };
 
   getItemsForPage();
-  console.log("getItemsForPage=========>", getItemsForPage);
   
   // Render pagination buttons
   const renderPagination = () => {

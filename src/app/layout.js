@@ -1,18 +1,21 @@
 import { Inter } from "next/font/google";
-import "bootstrap-icons/font/bootstrap-icons.css";
+import "bootstrap-icons/font/bootstrap-icons.min.css";
 import "./bootstrap-grid.min.css";
 import "./globals.css";
 import "./responsive.css";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { APIProvider } from "@/contexts/apiProvider";
-
+import thumbnail from '../app/Thumbnail.png';
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "TON Daily",
   description: "",
+  openGraph: {
+    images: "https://tondaily.news/images/Thumbnail.png",
+  },
 };
 
 export default function RootLayout({ children }) {

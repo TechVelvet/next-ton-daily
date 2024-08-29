@@ -230,7 +230,7 @@ body {
 }
 
 .index-page#wrapper{
-  margin-top: 130px;
+  margin-top: 140px;
 }
 
 body {
@@ -1132,7 +1132,7 @@ a:hover .tooltip {
 }
 
 .main-navigation>ul>li.dropdown>a:after {
-  font-family: 'fontello';
+  font-family:'Bootstrap-icons';
   content: '\e85a';
   margin-left: 10px;
   font-size: 12px;
@@ -1258,7 +1258,7 @@ a:hover .tooltip {
 }
 
 .responsive-nav-button:before {
-  font-family: "bootstrap-icons";
+  font-family:'Bootstrap-icons';
   content: "\F479";
 }
 
@@ -1291,7 +1291,7 @@ a:hover .tooltip {
 
 button.search-button,
 .shop-cart .sc-cart-btn {
-  font-family: "bootstrap-icons";
+  font-family:'Bootstrap-icons';
   font-size: 24px;
   display: inline-block;
   vertical-align: middle;
@@ -1317,7 +1317,7 @@ button.search-button:before {
 .close-popup {
   background-color: transparent;
   position: absolute;
-  font-family: "bootstrap-icons";
+  font-family:'Bootstrap-icons';
   left: 100%;
   margin-left: 20px;
   font-size: 20px;
@@ -1914,7 +1914,7 @@ button.search-button:before {
 
 .cookies span:before {
   content: '\e955';
-  font-family: "bootstrap-icons";
+  font-family:'Bootstrap-icons';
   font-size: 24px;
   display: inline-block;
   margin-right: 10px;
@@ -2261,7 +2261,7 @@ button.search-button:before {
   color: #333;
   opacity: 0;
   visibility: hidden;
-  font-family: "bootstrap-icons";
+  font-family:'Bootstrap-icons';
   -webkit-animation-duration: .5s;
   animation-duration: .5s;
 }
@@ -2627,8 +2627,8 @@ input[type="checkbox"]:checked+label::after {
 }
 
 .custom-select .select-title:before {
-  content: '\e85a';
-  font-family: 'fontello';
+  font-family:'Bootstrap-icons';
+  content:'\F229';
   position: absolute;
   top: 50%;
   margin-top: -13px;
@@ -2642,8 +2642,8 @@ input[type="checkbox"]:checked+label::after {
 }
 
 .custom-select .select-title.var2:before {
-  font-family: "bootstrap-icons";
-  content: '\e93a';
+  font-family:'Bootstrap-icons';
+  content: '\F229';
   font-size: 16px;
   color: #999;
 }
@@ -2969,7 +2969,7 @@ table {
   display: inline-block;
   vertical-align: top;
   margin-right: 10px;
-  font-family: "bootstrap-icons";
+  font-family:'Bootstrap-icons';
   color: #0788CA;
   font-size: 18px;
 }
@@ -3591,7 +3591,7 @@ hr.style-6.item-divider-3 {
 }
 
 .quantity input[type="text"] {
-  width: 150px;
+  width: 100%;
   padding: 0 40px 0 20px;
 }
 
@@ -3860,7 +3860,7 @@ hr.style-6.item-divider-3 {
 }
 
 .tribe-events-filter-checkboxes .custom-select .select-title:before {
-  font-family: "bootstrap-icons";
+  font-family:'Bootstrap-icons';
   content: "\e93a";
 }
 
@@ -4053,7 +4053,7 @@ hr.style-6.item-divider-3 {
   position: absolute;
   left: 0;
   top: 50%;
-  font-family: "bootstrap-icons";
+  font-family:'Bootstrap-icons';
   content: '\e95b';
   font-size: 18px;
   font-weight: normal;
@@ -4117,7 +4117,7 @@ hr.style-6.item-divider-3 {
 }
 
 [class*="alert"]:before {
-  font-family: "bootstrap-icons";
+  font-family:'Bootstrap-icons';
   font-size: 30px;
   color: #fff;
   position: absolute;
@@ -4174,7 +4174,7 @@ hr.style-6.item-divider-3 {
 }
 
 [class*="alert"] .close {
-  font-family: "bootstrap-icons";
+  font-family:'Bootstrap-icons';
   position: absolute;
   right: 30px;
   top: 50%;
@@ -4756,7 +4756,7 @@ hr.style-6.item-divider-3 {
 
 .owl-prev::before,
 .owl-next::before {
-  font-family: "bootstrap-icons";
+  font-family:'Bootstrap-icons';
 }
 
 .owl-prev::before {
@@ -6885,7 +6885,7 @@ iframe::scrollbar {
   right: 0;
   top: 50%;
   margin-top: -12px;
-  font-family: "bootstrap-icons";
+  font-family:'Bootstrap-icons';
   background: none;
   font-size: 18px;
   z-index: 2;
@@ -7488,4 +7488,7 @@ form a.btn.f-right {
   object-fit: cover;
 }
 
+.swiper .entry-title{
+  width: fit-content;
+}
 /* ----------------- Swiper style end ---------------- */

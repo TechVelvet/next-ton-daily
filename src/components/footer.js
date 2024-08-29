@@ -6,7 +6,7 @@ export default function Footer() {
           <div className="row align-items-center">
             <div className="col-lg-3 col-md-12">
               <a href="/" className="logo">
-                <img src="images/LOGO.png" alt="" />
+                <img src="/assets/img/LOGO.png" alt="" />
               </a>
             </div>
             <div className="col-lg-6 col-md-12 align-center"></div>
@@ -14,12 +14,12 @@ export default function Footer() {
               <ul className="social-icons">
                 <li>
                   <a href="https://x.com/TonDailyN" target="_blank">
-                    <i className="icon-twitter"></i>
+                    <i className="bi bi-twitter-x"></i>
                   </a>
                 </li>
                 <li>
                   <a href="#">
-                    <i className="icon-telegram"></i>
+                    <i className="bi bi-telegram"></i>
                   </a>
                 </li>
               </ul>
