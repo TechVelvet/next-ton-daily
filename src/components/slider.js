@@ -6,8 +6,8 @@ export default function Slider({ slide }) {
   const { formatDate } = useAPI();
   return (
     <>
-      <div class="owl-item">
-        <div class="owl-item">
+      <div className="owl-item">
+        <div className="owl-item">
           <a href={`article/${slide._id}`}>
             <img src={`https://backapi.bitcoinworld.news/api/media/${slide.blog_img}`} alt=""/>
           </a>

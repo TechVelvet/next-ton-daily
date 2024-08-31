@@ -56,7 +56,7 @@ export default function Home() {
                 <div className="widget">
                   <div className="banner-title">Advertisement</div>
                   <div id="ads200x200">
-                    <a href={ads200x200?.redirect_link} target='_blank' class="banner"><img src={`https://backapi.bitcoinworld.news/api/media/${ads200x200?.image}`} alt="" /></a>
+                    <a href={ads200x200?.redirect_link} target='_blank' className="banner"><img src={`https://backapi.bitcoinworld.news/api/media/${ads200x200?.image}`} alt="" /></a>
                   </div>
                 </div>
               </aside>
@@ -85,31 +85,31 @@ export default function Home() {
                     <div className="content-element2">
                       <div className="banner-title">Advertisement</div>
                       <div id="ads728x90">
-                        <a href={advertisment728x90?.redirect_link} target='_blank' class="banner"><img src={`https://backapi.bitcoinworld.news/api/media/${advertisment728x90?.image}`} alt="" /></a>
+                        <a href={advertisment728x90?.redirect_link} target='_blank' className="banner"><img src={`https://backapi.bitcoinworld.news/api/media/${advertisment728x90?.image}`} alt="" /></a>
                       </div>
                     </div>
                     <div className="content-element4">
                       <div className="entry-box row" id="main-blogs">
                         {displayedData?.map((elem, index) => (
-                          <div class="col-md-6" key={index}>
-                            <div class="entry entry-small">
-                              <div class="thumbnail-attachment">
+                          <div className="col-md-6" key={index}>
+                            <div className="entry entry-small">
+                              <div className="thumbnail-attachment">
                                 <a href="#">
                                   <img
                                     src={`https://backapi.bitcoinworld.news/api/media/${elem.blog_img}`}
                                     alt=""
                                   />
                                 </a>
-                                <a href="#" class="entry-label">
+                                <a href="#" className="entry-label">
                                   {elem.tag}
                                 </a>
                               </div>
-                              <div class="entry-body">
-                                <h5 class="entry-title">
+                              <div className="entry-body">
+                                <h5 className="entry-title">
                                   <a href="#">{elem.title}</a>
                                 </h5>
-                                <div class="entry-meta">
-                                  <time class="entry-date" datetime="">
+                                <div className="entry-meta">
+                                  <time className="entry-date" datetime="">
                                     {formatDate(elem.updatedAt)}
                                   </time>
                                 </div>
@@ -232,7 +232,7 @@ export default function Home() {
                     <div className="widget">
                       <div className="banner-title">Advertisement</div>
                       <div id="ads250x250">
-                        <a href={ads200x200?.redirect_link} target='_blank' class="banner"><img src={`https://backapi.bitcoinworld.news/api/media/${ads200x200?.image}`} alt="" /></a>
+                        <a href={ads200x200?.redirect_link} target='_blank' className="banner"><img src={`https://backapi.bitcoinworld.news/api/media/${ads200x200?.image}`} alt="" /></a>
                       </div>
                     </div>
                     <MostRead handleClick={handleClick} mostReadBlog={mostReadBlog} />
@@ -249,7 +249,7 @@ export default function Home() {
                 <i className="bi bi-x-lg" onClick={closeAddHandler}></i>
               </div>
               <div id="ads970x90">
-                <a href={advertisment970x90?.redirect_link} target='_blank' class="banner"><img src={`https://backapi.bitcoinworld.news/api/media/${advertisment970x90?.image}`} alt="" /></a>
+                <a href={advertisment970x90?.redirect_link} target='_blank' className="banner"><img src={`https://backapi.bitcoinworld.news/api/media/${advertisment970x90?.image}`} alt="" /></a>
               </div>
             </div>
           </div>

@@ -7,8 +7,8 @@ function IcoCalendar({ formatDate, icoCalendar }) {
 
       <div className="entry-box" id="ICO-Calendar">
         {icoCalendar?.slice(0, 4).map((ico, index) => (
-          <div class="entry entry-ico" key={index}>
-            <div class="thumbnail-attachment">
+          <div className="entry entry-ico" key={index}>
+            <div className="thumbnail-attachment">
               <a>
                 <img
                   src={`https://backapi.bitcoinworld.news/api/media/${ico.logo}`}
@@ -17,13 +17,13 @@ function IcoCalendar({ formatDate, icoCalendar }) {
               </a>
             </div>
 
-            <div class="entry-body">
-              <div class="entry-meta">
-                <time class="entry-date" datetime="">
+            <div className="entry-body">
+              <div className="entry-meta">
+                <time className="entry-date" datetime="">
                   {formatDate(ico.end_date)}
                 </time>
               </div>
-              <h6 class="entry-title">
+              <h6 className="entry-title">
                 <a href="#">{ico.title}</a>
               </h6>
               <p>{ico.description}</p>

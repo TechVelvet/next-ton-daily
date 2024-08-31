@@ -125,7 +125,7 @@ export default function ArticlePage({ params }) {
               <div className="widget">
                 <div className="banner-title">Advertisement</div>
                 <div id="ads250x250">
-                  <a href={ads200x200?.redirect_link} target='_blank' class="banner"><img src={`https://backapi.bitcoinworld.news/api/media/${ads200x200?.image}`} alt="" /></a>
+                  <a href={ads200x200?.redirect_link} target='_blank' className="banner"><img src={`https://backapi.bitcoinworld.news/api/media/${ads200x200?.image}`} alt="" /></a>
                 </div>
               </div>
 

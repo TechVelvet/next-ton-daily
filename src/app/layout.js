@@ -6,7 +6,6 @@ import "./responsive.css";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { APIProvider } from "@/contexts/apiProvider";
-import thumbnail from '../app/Thumbnail.png';
 
 const inter = Inter({ subsets: ["latin"] });
 

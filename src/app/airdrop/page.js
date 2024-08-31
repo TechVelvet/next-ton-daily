@@ -5,13 +5,13 @@ import Pagination from "@/components/Pagination";
 export default function Airdrop() {
   const { icoCalendar, formatDate } = useAPI(); 
     return (
-      <div id="content" class="page-content-wrap airdrop_list">
-        <div class="container">
+      <div id="content" className="page-content-wrap airdrop_list">
+        <div className="container">
           <main id="main">
-            <h2 class="title">Airdrop Calendar</h2>
+            <h2 className="title">Airdrop Calendar</h2>
 
             <div
-              class="table-responsive table-type-1 ico-calendar entry-box"
+              className="table-responsive table-type-1 ico-calendar entry-box"
               id="calender-container"
             >
               <table style={{ minWidth: "850px" }}>
@@ -29,8 +29,8 @@ export default function Airdrop() {
                   {
                   <tr>
                     <td>
-                      <div class="entry entry-ico">
-                        <div class="thumbnail-attachment">
+                      <div className="entry entry-ico">
+                        <div className="thumbnail-attachment">
                           <a href="#">
                             <img
                               src={`https://backapi.bitcoinworld.news/api/media/`}
@@ -38,8 +38,8 @@ export default function Airdrop() {
                             />
                           </a>
                         </div>
-                        <div class="entry-body">
-                          <h5 class="entry-title">
+                        <div className="entry-body">
+                          <h5 className="entry-title">
                             <a href="#">Hdac</a>
                           </h5>
                           <p>(HDAC)</p>
@@ -49,7 +49,7 @@ export default function Airdrop() {
                     <td>Token</td>
                     <td>
                       <a href="">
-                        <button class="btn btn-style-3 btn-small">Join</button>
+                        <button className="btn btn-style-3 btn-small">Join</button>
                       </a>
                     </td>
                     <td>100</td>
@@ -61,7 +61,7 @@ export default function Airdrop() {
               </table>
             </div>
 
-            <ul class="pagination" id="pagination-container">
+            <ul className="pagination" id="pagination-container">
               <Pagination />
             </ul>
           </main>

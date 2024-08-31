@@ -27,7 +27,7 @@ export default function Navbar() {
         className={`mobile-advanced ${showMenu ? "active" : ""}`}
       >
         <a id="advanced-menu-hide" href="#" onClick={handleShowMenu}></a>
-        <ul id="menu" class="clearfix">
+        <ul id="menu" className="clearfix">
           <li className={pathname === "/" ? "current" : ""}>
             <a href="/">Home</a>
           </li>
@@ -95,7 +95,7 @@ export default function Navbar() {
                 {windowWidth <= 992 ? (
                   <button
                     id="responsive-nav-button"
-                    class="responsive-nav-button"
+                    className="responsive-nav-button"
                     onClick={handleShowMenu}
                   ></button>
                 ) : (

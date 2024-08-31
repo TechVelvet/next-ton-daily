@@ -9,13 +9,13 @@ export default function Event() {
   
 
   return (
-    <div id="content" class="page-content-wrap">
-      <div class="container">
+    <div id="content" className="page-content-wrap">
+      <div className="container">
         <main id="main">
-          <h2 class="title">EVENT Calendar</h2>
+          <h2 className="title">EVENT Calendar</h2>
 
           <div
-            class="table-responsive table-type-1 ico-calendar entry-box"
+            className="table-responsive table-type-1 ico-calendar entry-box"
             id="calender-container"
           >
             <table style={{ minWidth: "850px" }}>
@@ -30,14 +30,14 @@ export default function Event() {
                 {eventCalendar?.map((event, index) => (
                   <tr key={index}>
                     <td>
-                      <div class="entry entry-ico">
-                        <div class="thumbnail-attachment">
+                      <div className="entry entry-ico">
+                        <div className="thumbnail-attachment">
                           <a href="#">
                             <img src={`https://backapi.bitcoinworld.news/api/media/${ico.logo}`} alt="" />
                           </a>
                         </div>
-                        <div class="entry-body">
-                          <h5 class="entry-title">
+                        <div className="entry-body">
+                          <h5 className="entry-title">
                             <a href="#">{event.title}</a>
                           </h5>
                           <p>sdvfdhk,fhgfgsgsrgrt</p>
@@ -52,7 +52,7 @@ export default function Event() {
             </table>
           </div>
 
-          <ul class="pagination" id="pagination-container">
+          <ul className="pagination" id="pagination-container">
             <Pagination />
           </ul>
         </main>
