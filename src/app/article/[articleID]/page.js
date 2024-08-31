@@ -83,7 +83,7 @@ export default function ArticlePage({ params }) {
                           <span className="share-title">Share this:</span>
                           <ul className="social-icons share v-type">
                             <li>
-                              <a href={`https://x.com/compose/post?text=${fullBlog?.title}&url=https://tondaily.news/BlogPage.html?id=${fullBlog?._id}`} target="_blank" className="sh-twitter">
+                              <a href={`https://x.com/compose/post?text=${fullBlog?.title}&url=https://next-ton-daily.vercel.app/article/${fullBlog?._id}`} target="_blank" className="sh-twitter">
                                 <i className="bi bi-twitter-x"></i>Twitter
                               </a>
                             </li>

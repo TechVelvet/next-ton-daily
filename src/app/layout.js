@@ -9,13 +9,13 @@ import { APIProvider } from "@/contexts/apiProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata = {
-  title: "TON Daily",
-  description: "",
-  openGraph: {
-    images: "https://tondaily.news/images/Thumbnail.png",
-  },
-};
+// export const metadata = {
+//   title: "TON Daily",
+//   description: "",
+//   openGraph: {
+//     images: "https://tondaily.news/images/Thumbnail.png",
+//   },
+// };
 
 export default function RootLayout({ children }) {
   
