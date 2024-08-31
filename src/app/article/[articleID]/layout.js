@@ -17,7 +17,6 @@ import { Metadata } from "next";
 // }
 export async function generateMetadata({ params }, parent) {
   const product = await fetch(`https://backapi.bitcoinworld.news/api/blog/${params.articleID}`).then((res) => res.json())
-  console.log("product=======>", product);
   
   return{
     title: product?.data.title,
