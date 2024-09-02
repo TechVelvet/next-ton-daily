@@ -33,7 +33,7 @@ export default function Event() {
                       <div className="entry entry-ico">
                         <div className="thumbnail-attachment">
                           <a href="#">
-                            <img src={`https://backapi.bitcoinworld.news/api/media/${ico.logo}`} alt="" />
+                            <img src={`https://backapi.bitcoinworld.news/api/media/${event.logo}`} alt="" />
                           </a>
                         </div>
                         <div className="entry-body">
