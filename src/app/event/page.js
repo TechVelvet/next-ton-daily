@@ -40,7 +40,7 @@ export default function Event() {
                           <h5 className="entry-title">
                             <a href="#">{event.title}</a>
                           </h5>
-                          <p>sdvfdhk,fhgfgsgsrgrt</p>
+                          <p>{event.description}</p>
                         </div>
                       </div>
                     </td>
