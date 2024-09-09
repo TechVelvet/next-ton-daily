@@ -28,15 +28,15 @@ export default function Ico() {
                     <td>
                       <div className="entry entry-ico">
                         <div className="thumbnail-attachment">
-                          <a href="#">
+                          <a href={ico.join_link}>
                             <img src={`https://backapi.bitcoinworld.news/api/media/${ico.logo}`} alt="" />
                           </a>
                         </div>
                         <div className="entry-body">
                           <h5 className="entry-title">
-                            <a href="#">{ico.title}</a>
+                            <a href={ico.join_link}>{ico.title}</a>
                           </h5>
-                          <p>sdvfdhk,fhgfgsgsrgrt</p>
+                          <p>{ico.description}</p>
                         </div>
                       </div>
                     </td>

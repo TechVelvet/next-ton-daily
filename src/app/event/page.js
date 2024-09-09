@@ -32,13 +32,13 @@ export default function Event() {
                     <td>
                       <div className="entry entry-ico">
                         <div className="thumbnail-attachment">
-                          <a href="#">
+                          <a href={entry.join_link}>
                             <img src={`https://backapi.bitcoinworld.news/api/media/${event.logo}`} alt="" />
                           </a>
                         </div>
                         <div className="entry-body">
                           <h5 className="entry-title">
-                            <a href="#">{event.title}</a>
+                            <a href={entry.join_link}>{event.title}</a>
                           </h5>
                           <p>{event.description}</p>
                         </div>

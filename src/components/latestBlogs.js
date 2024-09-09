@@ -15,9 +15,9 @@ function LatestBlogs({ handleClick, formatDate, latestBlog }) {
                   alt=""
                 />
               </a>
-              <a href="" className="entry-label">
+              <div className="entry-label">
                 {entry.tag}
-              </a>
+              </div>
             </div>
             <div className="entry-body">
               <h6 className="entry-title">

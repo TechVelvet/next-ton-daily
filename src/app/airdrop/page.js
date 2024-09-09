@@ -3,7 +3,7 @@ import { useAPI } from "@/contexts/apiProvider";
 import Pagination from "@/components/Pagination";
 
 export default function Airdrop() {
-  const { icoCalendar, formatDate } = useAPI(); 
+  const { airdropCalendar, formatDate } = useAPI(); 
     return (
       <div id="content" className="page-content-wrap airdrop_list">
         <div className="container">
@@ -26,37 +26,39 @@ export default function Airdrop() {
                   </tr>
                 </thead>
                 <tbody id="AirDropCaledar">
-                  {
-                  <tr>
-                    <td>
-                      <div className="entry entry-ico">
-                        <div className="thumbnail-attachment">
-                          <a href="#">
-                            <img
-                              src={`https://backapi.bitcoinworld.news/api/media/`}
-                              alt=""
-                            />
-                          </a>
+                {airdropCalendar?.map((entry, index) => (
+                    <tr key={index}>
+                      <td>
+                        <div className="entry entry-ico">
+                          <div className="thumbnail-attachment">
+                            <a href={entry.join_link}>
+                              <img
+                                src={`https://backapi.bitcoinworld.news/api/media/${entry.logo}`}
+                                alt=""
+                              />
+                            </a>
+                          </div>
+                          <div className="entry-body">
+                            <h5 className="entry-title">
+                              <a href={entry.join_link}>{entry.title}</a>
+                            </h5>
+                            <p>({entry.sort_name})</p>
+                          </div>
                         </div>
-                        <div className="entry-body">
-                          <h5 className="entry-title">
-                            <a href="#">Hdac</a>
-                          </h5>
-                          <p>(HDAC)</p>
-                        </div>
-                      </div>
-                    </td>
-                    <td>Token</td>
-                    <td>
-                      <a href="">
-                        <button className="btn btn-style-3 btn-small">Join</button>
-                      </a>
-                    </td>
-                    <td>100</td>
-                    <td>5000</td>
-                    <td>20-09-2024</td>
-                  </tr>
-                  }
+                      </td>
+                      <td>{entry.type}</td>
+                      <td>
+                        <a href={entry.join_link}>
+                          <button className="btn btn-style-3 btn-small">
+                            Join
+                          </button>
+                        </a>
+                      </td>
+                      <td>{entry.winners}</td>
+                      <td>{entry.qty}</td>
+                      <td>{formatDate(entry.end_in)}</td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>

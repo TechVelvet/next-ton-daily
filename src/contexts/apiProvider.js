@@ -11,6 +11,7 @@ export const APIProvider = ({ children }) => {
   const [allBlogs, setAllblogs] = useState();
   const [icoCalendar, setIcoCalendar] = useState();
   const [eventCalendar, setEventCalendar] = useState();
+  const [airdropCalendar, setAirdropCalendar] = useState();
   const [mostReadBlog, setMostReadBlog] = useState();
   const [ads200x200, setAds200x200] = useState();
   const [advertisment320x100, setAdvertisment320x100] = useState();
@@ -274,6 +275,22 @@ export const APIProvider = ({ children }) => {
     });
   }
 
+  const getAirdropCalendar = () => {
+    axios.get(`https://backapi.bitcoinworld.news/api/airdrop/?domain=TON Daily`)
+    .then((resp) => {
+      const apiResp = resp.data;
+      if(apiResp.success === 200){
+        setAirdropCalendar(apiResp.data);
+      }
+      else{
+        console.log("server error while fetching Airdrop Calendar");        
+      }
+    })
+    .catch((error) => {
+      console.log("error in Airdrop Calendar------>",error);
+    });
+  }
+
   const getMostReadBlog = () => {
     axios.get(`https://backapi.bitcoinworld.news/api/blog/info?domain=TON Daily&most_view=true`)
     .then((resp) => {
@@ -313,6 +330,7 @@ export const APIProvider = ({ children }) => {
     getAllBlog();
     getIcoCalendar();
     getEventCalendar();
+    getAirdropCalendar();
     getMostReadBlog();
     getAdvertisement();
   }, []);
@@ -328,6 +346,7 @@ export const APIProvider = ({ children }) => {
     allBlogs,
     icoCalendar,
     eventCalendar,
+    airdropCalendar,
     mostReadBlog,
     ads200x200,
     advertisment728x90,

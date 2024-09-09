@@ -27,6 +27,14 @@ export default function Home() {
 
   const [displayedData, setDisplayedData] = useState(allBlogs?.slice(0, 2));
   const [allDataLoaded, setAllDataLoaded] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(0);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    handleResize();
+  }, []);
 
   useEffect(() => {
     setDisplayedData(allBlogs?.slice(0, 2));
@@ -94,19 +102,19 @@ export default function Home() {
                           <div className="col-md-6" key={index}>
                             <div className="entry entry-small">
                               <div className="thumbnail-attachment">
-                                <a href="#">
+                                <a href={`/article/${elem._id}`}>
                                   <img
                                     src={`https://backapi.bitcoinworld.news/api/media/${elem.blog_img}`}
                                     alt=""
                                   />
                                 </a>
-                                <a href="#" className="entry-label">
+                                <div className="entry-label">
                                   {elem.tag}
-                                </a>
+                                </div>
                               </div>
                               <div className="entry-body">
                                 <h5 className="entry-title">
-                                  <a href="#">{elem.title}</a>
+                                  <a href={`/article/${elem._id}`}>{elem.title}</a>
                                 </h5>
                                 <div className="entry-meta">
                                   <time className="entry-date" datetime="">
@@ -248,8 +256,8 @@ export default function Home() {
                 <span>Advertisement</span>
                 <i className="bi bi-x-lg" onClick={closeAddHandler}></i>
               </div>
-              <div id="ads970x90">
-                <a href={advertisment970x90?.redirect_link} target='_blank' className="banner"><img src={`https://backapi.bitcoinworld.news/api/media/${advertisment970x90?.image}`} alt="" /></a>
+              <div id="ads970x90" className={windowWidth <= 768 ? "advertisment320x100" : "advertisment970x90"}>
+                <a href={ windowWidth <= 768 ? advertisment320x100?.redirect_link : advertisment970x90?.redirect_link } target='_blank' className="banner"><img src={`https://backapi.bitcoinworld.news/api/media/${ windowWidth <= 768 ? advertisment320x100?.image : advertisment970x90?.image }`} alt="" /></a>
               </div>
             </div>
           </div>

@@ -24,7 +24,7 @@ function IcoCalendar({ formatDate, icoCalendar }) {
                 </time>
               </div>
               <h6 className="entry-title">
-                <a href="#">{ico.title}</a>
+                <span>{ico.title}</span>
               </h6>
               <p>{ico.description}</p>
             </div>

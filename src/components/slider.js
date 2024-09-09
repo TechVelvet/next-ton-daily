@@ -7,11 +7,9 @@ export default function Slider({ slide }) {
   return (
     <>
       <div className="owl-item">
-        <div className="owl-item">
           <a href={`article/${slide._id}`}>
             <img src={`https://backapi.bitcoinworld.news/api/media/${slide.blog_img}`} alt=""/>
           </a>
-        </div>
       </div>
       <div
         style={{ background: `url${slide.blog_img}` }}
@@ -19,9 +17,9 @@ export default function Slider({ slide }) {
       >
         <div className="entry-body">
           <div className="entry-meta">
-            <a href="#" className="entry-label">
+            <div className="entry-label">
               {slide.tag}
-            </a>
+            </div>
             <time className="entry-date" dateTime="2024-08-11">
               {formatDate(slide.updatedAt)}
             </time>

@@ -37,7 +37,6 @@ export default function ArticlePage({ params }) {
 
   return (
     <>
-      {" "}
       <div className="breadcrumbs-wrap no-title">
         <div className="container">
           <ul className="breadcrumbs">
@@ -48,7 +47,7 @@ export default function ArticlePage({ params }) {
           </ul>
         </div>
       </div>
-      <div id="content" className="page-content-wrap">
+      <div id="content" className="page-content-wrap article">
         <div className="container">
           <div className="row">
             <main id="main" className="col-lg-9 col-md-12">
@@ -83,13 +82,13 @@ export default function ArticlePage({ params }) {
                           <span className="share-title">Share this:</span>
                           <ul className="social-icons share v-type">
                             <li>
-                              <a href={`https://x.com/compose/post?text=${fullBlog?.title}&url=https://next-ton-daily.vercel.app/article/${fullBlog?._id}`} target="_blank" className="sh-twitter">
-                                <i className="bi bi-twitter-x"></i>Twitter
+                              <a href={`https://x.com/compose/post?text=${fullBlog?.title}&url=https://tondaily.news/article/${fullBlog?._id}&via=TonDailyN`} target="_blank" className="sh-twitter">
+                                <i className="bi bi-twitter-x"></i>
                               </a>
                             </li>
                             <li>
-                              <a href="https://t.me/share/url?url=YourMessage" target="_blank" className="sh-telegram" >
-                                <i className="bi bi-telegram"></i>Telegram
+                              <a href={`https://t.me/share/url?url=https://tondaily.news/article/${fullBlog?._id}`} target="_blank" className="sh-telegram" >
+                                <i className="bi bi-telegram"></i>
                               </a>
                             </li>
                           </ul>

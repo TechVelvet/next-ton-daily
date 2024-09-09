@@ -570,13 +570,9 @@ p {
   padding: 0;
 }
 
-p:not(:last-child) {
+/* p:not(:last-child) {
   margin-bottom: 26px;
-}
-
-p+p {
-  margin-top: -13px;
-}
+} */
 
 .text-black {
   color: #333;
@@ -1668,8 +1664,8 @@ button.search-button:before {
   transition: all .4s ease;
 }
 
-.news-holder .entry.active,
-.news-holder .entry:hover {
+.news-holder .swiper-slide-active .entry,
+.news-holder .swiper-slide-active .entry:hover {
   background: linear-gradient(0deg, #0788CA 0%, #000000a1 100%);
 }
 .news-holder .entry.active .entry-date,
@@ -2628,7 +2624,7 @@ input[type="checkbox"]:checked+label::after {
 
 .custom-select .select-title:before {
   font-family:'Bootstrap-icons';
-  content:'\F229';
+  /* content:'\F229'; */
   position: absolute;
   top: 50%;
   margin-top: -13px;
@@ -3037,23 +3033,15 @@ table {
   display: inline-block;
 }
 
-.share-wrap:not(.v-type) {
-  margin: 0 -7px;
-}
-
 .share-wrap .share-title,
 .share-wrap .social-icons.share {
-  display: inline-block;
+  display: flex;
+  gap: 5px;
   vertical-align: middle;
-  margin: 0 7px;
 }
 
 .social-icons.share>li>a>i {
-  font-size: 12px;
-}
-
-.social-icons.share>li>a>i {
-  margin-right: 10px;
+  font-size: 18px;
 }
 
 .social-icons.share>li>a.sh-twitter {
@@ -3077,15 +3065,16 @@ table {
 }
 
 .social-icons.share>li>a {
-  width: auto;
-  height: auto;
-  padding: 6px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 38px;
+  height: 38px;
   border: none;
   color: #fff;
   font-size: 13px;
   line-height: 20px;
-  border-radius: 3px;
-  display: inline-block;
+  border-radius: 50%;
   letter-spacing: 0.8px;
 }
 
@@ -6202,6 +6191,18 @@ iframe::scrollbar {
   overflow: hidden;
   color: #333;
 }
+.article .content-element2 a {
+  color: #0000EE;
+}
+
+.article ul,
+.article ol{
+  padding-left: 15px;
+}
+
+.article .ql-size-large {
+	font-size: 20px;
+}
 
 .gravatar {
   float: left;
@@ -7484,11 +7485,13 @@ form a.btn.f-right {
 .swiper-slide img {
   display: block;
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
+  aspect-ratio: 16 / 9;
   object-fit: cover;
 }
 
 .swiper .entry-title{
   width: fit-content;
 }
+
 /* ----------------- Swiper style end ---------------- */

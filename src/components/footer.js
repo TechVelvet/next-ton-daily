@@ -17,11 +17,6 @@ export default function Footer() {
                     <i className="bi bi-twitter-x"></i>
                   </a>
                 </li>
-                <li>
-                  <a href="#">
-                    <i className="bi bi-telegram"></i>
-                  </a>
-                </li>
               </ul>
             </div>
           </div>
@@ -30,19 +25,6 @@ export default function Footer() {
       <div className="main-footer">
         <div className="container">
           <div className="row">
-            <div className="col-lg-3 col-md-6 col-sm-12">
-              <div className="widget">
-                <h6 className="widget-title">About</h6>
-                <p>
-                  Nemo enim ipsam voluptatem quia voluptas aut fugit, sed quia
-                  consequuntur magni dolores eos qui ratione.
-                </p>
-                <p>
-                  Est, qui dolorem ipsum quia dolor sit amet, nsectetur, sed
-                  quia non numquam eius modi tempora incidunt ut labore.{" "}
-                </p>
-              </div>
-            </div>
             <div className="col-lg-3 col-md-6 col-sm-12">
               <div className="widget">
                 <h6 className="widget-title">Live Charts</h6>
@@ -92,7 +74,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="copyright">
-        <p>Copyright © 2018 Cryptox. All Rights Reserved.</p>
+        <p>Copyright © 2024 TON Daily News. All Rights Reserved.</p>
       </div>
     </footer>
   );
